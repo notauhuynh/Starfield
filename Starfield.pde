@@ -1,4 +1,4 @@
-Particle[] stars = new Particle[500];
+Particle[] stars = new Particle[2000];
 void setup()
 {
   size(600, 600);
@@ -6,7 +6,7 @@ void setup()
   noStroke();
   for (int i = 0; i < stars.length; i++) {
     stars[i] = new Particle();
-    if(i % 3 == 0){
+    if(i % 2 == 0){
     stars[i] = new OddballParticle();
     }
   }
@@ -24,7 +24,7 @@ class Particle
   int myColor;
   Particle() {
     myY = myX = 300;
-    mySpeed = Math.random() * 10;
+    mySpeed = Math.random() * 10 + 1;
     myAngle = Math.random() * 2 * Math.PI;
     myColor = color(#FFFFFF);
   }
@@ -38,7 +38,7 @@ class Particle
 
   void show() {
 
-    ellipse((float)myX, (float)myY, 7, 7);
+    ellipse((float)myX, (float)myY, 1, 1);
     fill(myColor);
   }
 }
@@ -56,7 +56,7 @@ class OddballParticle extends Particle //inherits from Particle
   }
 
   void show() {
-    ellipse((float)myX, (float)myY, 7, 7);
+    ellipse((float)myX, (float)myY, 1, 1);
     fill(#000000);
     
   }
